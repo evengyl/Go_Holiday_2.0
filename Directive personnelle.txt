@@ -1,0 +1,7 @@
+bsd en sql server - la plupars des requetes en proced stockée
+	ne pas oublié sallage  hash  sallage du mdp
+
+web api de consumme en asp.Net.core
+site en asp.core.mvc
+angular pour la partie administration des annonces et des users
+app xamarin pour la partie gestion des demandes clients, la validations des new annonces
