@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebSite\\WebApplication1.csproj": {}
+    "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebAPI\\WEBAPI\\ExternalTools\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebSite\\WebApplication1.csproj": {
+    "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebAPI\\WEBAPI\\ExternalTools\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebSite\\WebApplication1.csproj",
-        "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebSite\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebAPI\\WEBAPI\\ExternalTools\\DAL\\DAL.csproj",
+        "projectName": "DAL",
+        "projectPath": "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebAPI\\WEBAPI\\ExternalTools\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\32497\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebSite\\obj\\",
+        "outputPath": "C:\\Users\\32497\\Desktop\\ProjetLabo_GoH\\Go_Holiday_2.0\\WebAPI\\WEBAPI\\ExternalTools\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -42,9 +42,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+            "System.Data.SqlClient": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[4.8.1, )"
             }
           },
           "imports": [
@@ -58,9 +58,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
