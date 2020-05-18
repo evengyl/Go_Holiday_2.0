@@ -26,10 +26,6 @@ namespace Go_Holiday_2._0.Utils.Attributes
                 //très rare, a mon avis uniquement pour éviter le force brut sur la page login et create account si connecter
                 context.Result = new RedirectToActionResult("Index", "Home", null);
             }
-            else
-            {
-                //ok action peux être faite
-            }
         }
     }
 }

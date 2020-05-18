@@ -26,10 +26,6 @@ namespace Go_Holiday_2._0.Utils.Attributes
                 //si pas logger et que c'est demander grace a l'attribut ici, renvoi vers la page login
                 context.Result = new RedirectToActionResult("Index", "Home", null);
             }
-            else
-            {
-                //ok action peux être faite
-            }
         }
     }
 }

@@ -1,33 +1,38 @@
-﻿<nav class="headroom navbar navbar-expand-sm navbar-fixed-top navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+﻿<nav class="navbar navbar-dark navbar-expand-xl fixed-top portfolio-navbar gradient" data-aos="fade" data-aos-duration="1000" style="height:auto;background-color:rgba(0,0,0,0.8);background-image:url(&quot;transparent&quot;);min-height:0px;max-height:100px;">
     <div class="container">
-        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/data/images/logo.png" alt="">
+        <a class="navbar-brand text-monospace text-light logo thin" asp-controller="Home" asp-action="Index" style="font-family:'Open Sans', sans-serif;">
+            <img class="img-fluid" src="~/data/images/logo.png" width="80" style="margin-right:10px;">
             Go Holiday
         </a>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        
+        <button class="navbar-toggler">
+            <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-            <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Recherche de vacances</a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <a asp-area="" asp-controller="Auth" asp-action="SignIn" class="btn btn-success" role="button" style="margin:0px;margin-right:10px;font-size:14px;background-color:rgba(40,167,69,0);color:rgb(255,255,255);">
+                Se connecter
+            </a>
+
+            <a asp-area="" asp-controller="Auth" asp-action="SignUp" class="btn btn-warning" role="button" style="color:rgb(255,255,255);">
+                Créer un compte
+            </a>
+
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link active">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Contactez nous</a>
+
+                <li class="nav-item" role="presentation">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Mon profil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Auth" asp-action="SignIn">Se connecter</a>
+
+                <li class="nav-item" role="presentation">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link active">Recherche de vacances</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Auth" asp-action="SignUp">Créer un compte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Mon Profil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" asp-area="" asp-controller="Auth" asp-action="Logout">Se Déconnecter</a>
+
+                <li class="nav-item" role="presentation">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Contactez-nous</a>
                 </li>
             </ul>
         </div>

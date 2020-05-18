@@ -4,28 +4,31 @@
     ViewData["Title"] = "Connexion";
 }
 
-<h1>Se connecter</h1>
 
-<h4>Connexion à votre compte</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="SignIn">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Valider" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+
+<div class="login-dark" style="background: #475d62 url('/data/images/star-sky.jpg');">
+    <form asp-action="SignIn" style="width:500px;max-width:500px;">
+        <div class="illustration">
+            <img src="~/data/images/logo_big.png" style="width:200px;">
+            <h1 style="color:rgba(205,205,205,0.37);">Go Holiday</h1>
+        </div>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group">
+            <input asp-for="Email" class="form-control" type="email" name="Email" required="" placeholder="Email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="Password" class="form-control" type="password" name="Password" required="" placeholder="Mot de passe">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <button style="background-color:#214a80;" class="btn btn-primary btn-block" type="submit">Log In</button>
+        </div>
+
+        <a href="#" class="forgot">Vous avez perdu votre mot de passe ou votre email ?</a>
+    </form>
 </div>
-

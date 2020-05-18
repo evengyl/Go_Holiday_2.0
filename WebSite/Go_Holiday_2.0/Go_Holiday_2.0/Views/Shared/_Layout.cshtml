@@ -1,44 +1,48 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html style="font-family:Roboto, sans-serif;" lang="fr">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Go_Holiday_2._0</title>
 
-    <script src="~/js/less.min.js"></script>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-
-
-    <link rel="stylesheet" media="screen" href="~/css/google_font.css">
-    <link rel="stylesheet" href="~/css/dropzone.css" type="text/css">
-    <link rel="stylesheet" href="~/css/lightbox.css" type="text/css">
-    <link rel="stylesheet" href="~/css/font-awesome.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/bootstrap-theme.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
+    
+    <link rel="stylesheet" href="~/data/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="~/css/Features-Boxed.css">
+    <link rel="stylesheet" href="~/css/Footer-Dark.css">
+    <link rel="stylesheet" href="~/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="~/css/Login-Form-Clean.css">
+    <link rel="stylesheet" href="~/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="~/css/Projects-Horizontal.css">
+    <link rel="stylesheet" href="~/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="~/css/Team-Clean.css">
+    <link rel="stylesheet" href="~/css/untitled-1.css">
+    <link rel="stylesheet" href="~/css/untitled.css">
 
 
 </head>
-<body class="home">
-    <header>
+<body style="font-family:'Open Sans', sans-serif;font-size:14px;">
+    @{
+        Html.RenderPartial("_NavigationHome");
+    }
 
-        @{
-            Html.RenderPartial("_NavigationHome");
-        }
-    </header> 
-    <div class="container-fluid"  style="padding-bottom:60px;">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    @RenderBody()
 
     @{
         Html.RenderPartial("_Footer");
     }
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/bs-animation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
+    <script src="~/js/theme.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

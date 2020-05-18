@@ -1,0 +1,17 @@
+.btn:not(:disabled):not(.disabled) {
+  font-size:14px;
+  background-color:rgba(211,158,0,0);
+  color:#ffffff;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  border-radius:5px;
+  color:#4c8cd6;
+}
+
+.navbar-brand.text-monospace.text-light.logo.thin {
+}
+
+.portfolio-block.website.gradient {
+}
+
