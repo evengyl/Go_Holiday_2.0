@@ -70,6 +70,7 @@ namespace DAL.Services
                             Pays = reader["Pays"] == DBNull.Value ? string.Empty : (string)reader["Pays"],
                             Gsm = reader["Gsm"] == DBNull.Value ? string.Empty : (string)reader["Gsm"],
                             Phone = reader["Phone"] == DBNull.Value ? string.Empty : (string)reader["Phone"],
+                            TypeUser = reader["TypeUser"] == DBNull.Value ? 0 : (int)reader["TypeUser"]
                         };
                     }
                     else

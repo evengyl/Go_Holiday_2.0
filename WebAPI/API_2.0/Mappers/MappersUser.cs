@@ -17,23 +17,8 @@ namespace API_2.Mappers
                 UserID = DALToAPI.UserID,
                 LastName = DALToAPI.LastName,
                 FirstName = DALToAPI.FirstName,
-                Email = DALToAPI.Email
-                /*AddressUser = new ModelsAPI.AddressUser
-                {
-                    Rue = DALToAPI.AddressUser.Rue,
-                    Numero = DALToAPI.AddressUser.Numero,
-                    CodePostal = DALToAPI.AddressUser.CodePostal,
-                    Ville = DALToAPI.AddressUser.Ville,
-                    Pays = DALToAPI.AddressUser.Pays
-                },
-                ComplementUser = new ModelsAPI.ComplementUser
-                {
-                    Gsm = DALToAPI.ComplementUser.Gsm,
-                    Phone = DALToAPI.ComplementUser.Phone,
-                    Benefice = DALToAPI.ComplementUser.Benefice,
-                    TotalPrice_InLocate = DALToAPI.ComplementUser.TotalPrice_InLocate,
-                    TotalPrice_InAttemps = DALToAPI.ComplementUser.TotalPrice_InAttemps
-                }*/
+                Email = DALToAPI.Email,
+                TypeUser = DALToAPI.TypeUser
             };
         }
     }

@@ -57,5 +57,10 @@ namespace Go_Holiday_2._0.Models
         [DisplayName("Numéro de téléphone fixe")]
         [DataType(DataType.Text)]
         public string Phone { get; set; }
+
+        /* n'est pas repris dans le model pour l'affichage du edit profil */
+        public string TypeUser { get; set; }
+
+        public BackgroundProfil BackgroundProfil { get; set; }
     }
 }

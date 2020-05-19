@@ -49,6 +49,7 @@ namespace Go_Holiday_2._0.Controllers.Login
                 if (userLogin.Email == user.Email)
                 {
                     SessionManager.UserID = userLogin.UserID;
+                    SessionManager.TypeUser = userLogin.TypeUser;
                     SessionManager.Email = userLogin.Email;
                     SessionManager.LastName = userLogin.LastName;
                     SessionManager.FirstName = userLogin.FirstName;

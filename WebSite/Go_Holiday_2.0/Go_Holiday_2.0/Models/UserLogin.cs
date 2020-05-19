@@ -11,5 +11,7 @@ namespace Go_Holiday_2._0.Models
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Email { get; set; }
+
+        public int TypeUser { get; set; }
     }
 }

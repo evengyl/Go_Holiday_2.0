@@ -9,6 +9,7 @@ namespace Go_Holiday_2._0.Utils.Session
     public interface ISessionManager
     {
         int UserID { get; set; }
+        int TypeUser { get; set; }
         string Email { get; set; }
         string LastName { get; set; }
         string FirstName { get; set; }

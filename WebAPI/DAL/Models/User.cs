@@ -15,6 +15,7 @@ namespace DAL.Models
 
         public string Gsm { get; set; }
         public string Phone { get; set; }
+        public int TypeUser { get; set; }
 
 
 

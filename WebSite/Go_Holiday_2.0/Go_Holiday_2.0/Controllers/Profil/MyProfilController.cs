@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Go_Holiday_2._0.Models;
@@ -19,6 +20,7 @@ namespace Go_Holiday_2._0.Controllers.Profil
 
 
         private UserInfos UI;
+        private BackgroundProfil _backgroundProfil;
 
 
 
@@ -29,16 +31,34 @@ namespace Go_Holiday_2._0.Controllers.Profil
             _sessionManager = sessionManager;
             
             UI = new UserInfos();
+            _backgroundProfil = new BackgroundProfil();
+
+            /* méthode */
+            GetBackgroundProfilList();
+            
+
+
         }
         
         
         public IActionResult Index()
         {
             UserInfos UI = _sessionManager.GetInfosUser();
-            ViewBag.UI = UI;
-            return View();
+            UI.BackgroundProfil = _backgroundProfil;
+            return View(UI);
         }
 
-       
+        private void GetBackgroundProfilList()
+        {
+            DirectoryInfo dir = new DirectoryInfo(@"wwwroot/data/images/background_profil");
+            FileInfo[] fichiers = dir.GetFiles();
+
+            foreach (FileInfo fichier in fichiers)
+            {
+                _backgroundProfil.Url.Add(fichier.FullName);
+                _backgroundProfil.ShortUrl.Add(fichier.Name);
+            }
+            
+        }
     }
 }

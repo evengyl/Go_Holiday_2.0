@@ -25,6 +25,13 @@ namespace Go_Holiday_2._0.Utils.Session
             get { return (Session.GetInt32(nameof(UserID)).HasValue) ? Session.GetInt32(nameof(UserID)).Value : -1; }
             set { Session.SetInt32(nameof(UserID), value); }
         }
+
+        public int TypeUser
+        {
+            get { return (Session.GetInt32(nameof(TypeUser)).HasValue) ? Session.GetInt32(nameof(TypeUser)).Value : -1; }
+            set { Session.SetInt32(nameof(TypeUser), value); }
+        }
+
         public string LastName
         {
             get { return Session.GetString(nameof(LastName)); }
