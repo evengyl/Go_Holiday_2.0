@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="highlight-clean" style="padding-bottom:0px;">
+    <div class="container" style="margin-top:80px;">
+        <div class="intro">
+            <h1 class="text-center">Mon compte<br></h1>
+            <p class="text-center">c'est à partir d'ici que vous pourrez ajouter, editer, intéragir avec vos annonces et vos clients<br></p>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+    <div class="container-fluid" style="margin-bottom:20px;">
+        <div class="row">
+            <div class="col-sm-6 col-md-5 col-lg-4 col-xl-2 item">
+                <div class="contact-info portfolio-info-card">
+
+                    <h2 class="text-center" style="font-size:18px;">
+                        <i class="fa fa-user d-block" style="font-size:40px;padding-bottom:15px;"></i>Mon profil<br>
+                    </h2>
+
+                    <div class="row" style="font-size:18px;">
+                        <div class="col-1"><i class="icon ion-person icon"></i></div>
+                        <div class="col-9"><span >@ViewBag.UI.LastName @ViewBag.UI.FirstName</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1"><i class="icon ion-person icon"></i></div>
+                        <div class="col-9"><span><b>Adresse : </b>
+                                            Rue : @ViewBag.UI.Rue
+                                            @ViewBag.UI.Numero <br />
+                                            à @ViewBag.UI.Ville @ViewBag.UI.CodePostal <br />
+                                            Pays : @ViewBag.UI.Pays
+                                        </span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1"><i class="icon ion-at icon"></i></div>
+                        <div class="col-9"><span>@ViewBag.UI.Email</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
+                        <div class="col-9"><span>@ViewBag.UI.Gsm</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
+                        <div class="col-9"><span>@ViewBag.UI.Phone</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xl-8">
+                <div class="intro">
+                    <h4 class="text-center" style="font-size:25px;color:rgb(49,52,55);margin-bottom:20px;">Liste de demandes en cours</h4>
+                    <hr>
+                </div>
+
+
+                <section class="portfolio-block website gradient" style="        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        background-color: #f1f1f1;
+        background-repeat: no-repeat;
+        background-image: url('none');">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-md-12 col-lg-5 col-xl-6 offset-lg-1 text" style="color:rgb(74,74,74);">
+
+                                <h5 style="font-size:22px;">Nom de l'annonce</h5>
+                                <hr style="margin-top:7px;margin-bottom:7px;">
+                                <h6 class="text-success" style="font-size:18px;">Date de la demande : 01/01/1990 au 02/02/1991</h6>
+                                <hr style="margin-bottom:7px;margin-top:7px;">
+
+                                <p class="text-left" style="font-size:16px;line-height:16px;margin-bottom:10px;">Nom de la personne : turlututu</p>
+                                <p class="text-left" style="font-size:16px;line-height:16px;margin-bottom:10px;">Nombre de messages : 150</p>
+                                <p class="text-left" style="font-size:20px;line-height:20px;margin-bottom:10px;">Prix demandé : 400€</p>
+                                <p class="text-left" style="font-size:20px;line-height:20px;margin-bottom:10px;">Prix annoncé : 450€</p>
+
+                                <button class="btn btn-info" type="button">Voir l'annonce</button>
+                                <button class="btn btn-success" type="button">Accepter</button>
+                                <button class="btn btn-danger" type="button">Rejeter</button>
+                            </div>
+                            <div class="col-md-12 col-lg-5">
+                                <div class="portfolio-laptop-mockup">
+                                    <div class="screen">
+                                        <div class="screen-content" style="background-image:url('/data/images/famille.jpg');"></div>
+                                    </div>
+                                    <div class="keyboard"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </section>
+
+
+
+            </div>
+            <div class="col-md-4 col-xl-2">
+                <div class="contact-info portfolio-info-card" style="padding-top:20px;">
+
+                    <h2 class="text-center" style="font-size:18px;">
+                        <i class="fa fa-wrench d-block" style="font-size:40px;padding-top:15px;"></i>
+                        Options de compte<br>
+                    </h2>
+
+                    <button data-toggle="modal" data-target="#EditUserModal" class="btn btn-success btn-block btn-lg d-inline-block" role="button" style="color:white; margin-bottom:15px;">
+                        <i class="fa fa-pencil d-block"></i>Editer mon profil
+                    </button>
+
+                    <button class="btn btn-success btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        <i class="fa fa-pencil d-block"></i>
+                        <span>Changer mon mot de passe</span>
+                    </button>
+
+                    <button class="btn btn-success btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        <i class="fa fa-eye d-block"></i>Voir mes annonces
+                    </button>
+
+                    <button class="btn btn-success btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        <i class="fa fa-plus d-block"></i>Ajouter une annonce
+                    </button>
+
+                    <button class="btn btn-success btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        Mes conditions<br /> générales de location
+                    </button>
+
+
+
+                    <h2 class="text-center" style="font-size:18px;">
+                        <i class="fa fa-eye d-block" style="font-size:40px;padding-top:15px;"></i>
+                        Gestion des demandes<br>
+                    </h2>
+
+                    <button class="btn btn-danger btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        <i class="fa fa-calendar d-block"></i>Calendrier
+                    </button>
+
+                    <button class="btn btn-danger btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom: 15px;">
+                        <i class="fa fa-check-circle-o d-block"></i>Acceptées
+                    </button>
+
+                    <button class="btn btn-danger btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        <i class="fa fa-ban d-block"></i>Refusées
+                    </button>
+
+                    <button class="btn btn-danger btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        <i class="fa fa-question-circle-o d-block"></i>En attentes
+                    </button>
+
+                    <button class="btn btn-danger btn-block btn-lg d-inline-block" role="button" href="#" style="margin-bottom:15px;">
+                        <i class="fa fa-comments d-block"></i>Messagerie
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+Liste des appels aux vues partielle des multiple modal
+
+-->
+@{
+    Html.RenderPartial("/Views/MyProfil/ModalList/EditProfil.cshtml");
+}

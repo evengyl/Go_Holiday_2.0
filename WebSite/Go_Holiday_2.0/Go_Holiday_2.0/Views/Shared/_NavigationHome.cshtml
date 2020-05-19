@@ -1,4 +1,7 @@
-﻿<nav class="navbar navbar-dark navbar-expand-xl fixed-top portfolio-navbar gradient" data-aos="fade" data-aos-duration="1000" style="height:auto;background-color:rgba(0,0,0,0.8);background-image:url(&quot;transparent&quot;);min-height:0px;max-height:100px;">
+﻿@using Go_Holiday_2._0.Utils.Session
+@inject ISessionManager _session 
+
+<nav class="navbar navbar-dark navbar-expand-xl fixed-top portfolio-navbar gradient" data-aos="fade" data-aos-duration="1000" style="height:auto;background-color:rgba(0,0,0,0.8);background-image:url(&quot;transparent&quot;);min-height:0px;max-height:100px;">
     <div class="container">
         <a class="navbar-brand text-monospace text-light logo thin" asp-controller="Home" asp-action="Index" style="font-family:'Open Sans', sans-serif;">
             <img class="img-fluid" src="~/data/images/logo.png" width="80" style="margin-right:10px;">
@@ -10,30 +13,55 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <a asp-area="" asp-controller="Auth" asp-action="SignIn" class="btn btn-success" role="button" style="margin:0px;margin-right:10px;font-size:14px;background-color:rgba(40,167,69,0);color:rgb(255,255,255);">
-                Se connecter
-            </a>
 
-            <a asp-area="" asp-controller="Auth" asp-action="SignUp" class="btn btn-warning" role="button" style="color:rgb(255,255,255);">
-                Créer un compte
-            </a>
+            
+
+
 
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation">
                     <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link active">Accueil</a>
                 </li>
 
-                <li class="nav-item" role="presentation">
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Mon profil</a>
-                </li>
+                @if (_session.UserID != -1)
+                {
+                    <li class="nav-item" role="presentation">
+                        <a asp-area="" asp-controller="MyProfil" asp-action="Index" class="nav-link">Mon profil</a>
+                    </li>
+                }
+
 
                 <li class="nav-item" role="presentation">
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link active">Recherche de vacances</a>
+                    <a asp-area="" asp-controller="Search" asp-action="Index" class="nav-link active">Recherche de vacances</a>
                 </li>
 
                 <li class="nav-item" role="presentation">
                     <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Contactez-nous</a>
                 </li>
+
+
+                @if (_session.UserID == -1)
+                {
+                    <a asp-area="" asp-controller="Auth" asp-action="SignUp" class="btn btn-warning" role="button" style="color:black; margin-right:20px;">
+                        Créer un compte
+                    </a>
+
+                    <a asp-area="" asp-controller="Auth" asp-action="SignIn" class="btn btn-success" role="button" style="margin:0px;
+                                                                                                            margin-right:10px;
+                                                                                                            font-size:14px;
+                                                                                                            color:black;">
+                        Se connecter
+                    </a>
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="Auth" asp-action="Logout" class="btn btn-warning" role="button" style="margin:0px;
+                                                                                                            margin-right:10px;
+                                                                                                            font-size:14px;
+                                                                                                            color:black;">
+                        Se déconnecter
+                    </a>
+                }
             </ul>
         </div>
     </div>

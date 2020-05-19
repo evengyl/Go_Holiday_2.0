@@ -18,6 +18,7 @@ namespace Go_Holiday_2._0.Controllers.Login
         {
             _loginSystemAPI = loginSystemAPI;
             _signUpSystemAPI = signUpSystemAPI;
+
             _controllerAPI = controllerAPI;
             _cryptingRSA = cryptingRSA;
         }

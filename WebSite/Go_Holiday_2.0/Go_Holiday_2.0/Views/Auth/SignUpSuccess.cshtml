@@ -3,5 +3,20 @@
     ViewData["Title"] = "SignUpSuccess";
 }
 
-<h1>SignUpSuccess</h1>
+<div class="login-dark" style="background: #475d62 url('/data/images/star-sky.jpg');">
+    <form style="width:500px;max-width:500px;">
+        <div class="illustration">
+            <img src="~/data/images/logo_big.png" style="width:200px;">
+            <h1 style="color:rgba(205,205,205,0.37);">Go Holiday</h1>
+        </div>
 
+        <p style="font-size:18px;" class="text-center text-success">
+            Félicitation, votre compte a bien été créé
+        </p>
+
+        <div class="form-group">
+            <button asp-controller="Home" asp-action="Index" class="btn btn-primary btn-block" type="submit">Retour à l'accueil</button>
+        </div>
+
+    </form>
+</div>

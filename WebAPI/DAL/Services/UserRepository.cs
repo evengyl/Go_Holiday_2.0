@@ -1,5 +1,6 @@
 ﻿using DAL.IRepositories;
 using DAL.Models;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -31,22 +32,13 @@ namespace DAL.Services
                             LastName = (string)reader["LastName"],
                             FirstName = (string)reader["FirstName"],
                             Email = (string)reader["Email"],
-                            AddressUser = new AddressUser
-                                {
-                                    Rue = (string)reader["Rue"],
-                                    Numero = (string)reader["Numero"],
-                                    CodePostal = (int)reader["CodePostal"],
-                                    Ville = (string)reader["Ville"],
-                                    Pays = (string)reader["Pays"]
-                                },
-                            ComplementUser = new ComplementUser
-                                {
-                                    Gsm = (string)reader["Gsm"],
-                                    Phone = (string)reader["Phone"],
-                                    Benefice = (int)reader["Benefice"],
-                                    TotalPrice_InLocate = (int)reader["TotalPrice_InLocate"],
-                                    TotalPrice_InAttemps = (int)reader["TotalPrice_InAttemps"]
-                                }
+                            Rue = (string)reader["Rue"],
+                            Numero = (string)reader["Numero"],
+                            CodePostal = (int)reader["CodePostal"],
+                            Ville = (string)reader["Ville"],
+                            Pays = (string)reader["Pays"],
+                            Gsm = (string)reader["Gsm"],
+                            Phone = (string)reader["Phone"]
                         });
                     }
                     return ListUser;
@@ -70,23 +62,14 @@ namespace DAL.Services
                             UserID = (int)reader["UserID"],
                             LastName = (string)reader["LastName"],
                             FirstName = (string)reader["FirstName"],
-                            Email = (string)reader["Email"]/*
-                            AddressUser = new AddressUser
-                            {
-                                Rue = (string)reader["Rue"],
-                                Numero = (string)reader["Numero"],
-                                CodePostal = (int)reader["CodePostal"],
-                                Ville = (string)reader["Ville"],
-                                Pays = (string)reader["Pays"]
-                            },
-                            ComplementUser = new ComplementUser
-                            {
-                                Gsm = (string)reader["Gsm"],
-                                Phone = (string)reader["Phone"],
-                                Benefice = (int)reader["Benefice"],
-                                TotalPrice_InLocate = (int)reader["TotalPrice_InLocate"],
-                                TotalPrice_InAttemps = (int)reader["TotalPrice_InAttemps"]
-                            }*/
+                            Email = (string)reader["Email"],
+                            Rue = reader["Rue"] == DBNull.Value ? string.Empty : (string)reader["Rue"],
+                            Numero = reader["Numero"] == DBNull.Value ? string.Empty : (string)reader["Numero"],
+                            CodePostal = reader["CodePostal"] == DBNull.Value ? 0 : (int)reader["CodePostal"],
+                            Ville = reader["Ville"] == DBNull.Value ? string.Empty : (string)reader["Ville"],
+                            Pays = reader["Pays"] == DBNull.Value ? string.Empty : (string)reader["Pays"],
+                            Gsm = reader["Gsm"] == DBNull.Value ? string.Empty : (string)reader["Gsm"],
+                            Phone = reader["Phone"] == DBNull.Value ? string.Empty : (string)reader["Phone"],
                         };
                     }
                     else
@@ -150,40 +133,7 @@ namespace DAL.Services
                     }
                 }
 
-                /*
-                using (SqlDataReader reader = commander.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        return new User
-                        {
-                            UserID = (int)reader["UserID"],
-                            LastName = (string)reader["LastName"],
-                            FirstName = (string)reader["FirstName"],
-                            Email = (string)reader["Email"],
-                            AddressUser = new AddressUser
-                            {
-                                Rue = (string)reader["Rue"],
-                                Numero = (string)reader["Numero"],
-                                CodePostal = (int)reader["CodePostal"],
-                                Ville = (string)reader["Ville"],
-                                Pays = (string)reader["Pays"]
-                            },
-                            ComplementUser = new ComplementUser
-                            {
-                                Gsm = (string)reader["Gsm"],
-                                Phone = (string)reader["Phone"],
-                                Benefice = (int)reader["Benefice"],
-                                TotalPrice_InLocate = (int)reader["TotalPrice_InLocate"],
-                                TotalPrice_InAttemps = (int)reader["TotalPrice_InAttemps"]
-                            }
-                        };
-                    }
-                    else
-                    {
-                        return new User();
-                    }
-                }*/
+
             }
         }
 
@@ -248,19 +198,31 @@ namespace DAL.Services
         {
             using (SqlCommand commander = connection.CreateCommand())
             {
-                commander.CommandText = "UPDATE [user] SET login = @Login, password = @Password, name = @Name, lastName = @LastName " +
-                                    "WHERE id = @Id";
+                commander.CommandText = "UPDATE [UserInfos] SET " +
+                                            "LastName = @LastName, " +
+                                            "FirstName = @FirstName, " +
+                                            "Email = @Email, " +
+                                            "Rue = @Rue " +
+                                            "Numero = @Numero " +
+                                            "CodePostal = @CodePostal " +
+                                            "Ville = @Ville " +
+                                            "Pays = @Pays " +
+                                            "Gsm = @Gsm " +
+                                            "Phone = @Phone " +
+                                    "WHERE UserID = @UserID";
 
+
+                commander.Parameters.AddWithValue("UserID", user.UserID);
                 commander.Parameters.AddWithValue("LastName", user.LastName);
                 commander.Parameters.AddWithValue("FirstName", user.FirstName);
                 commander.Parameters.AddWithValue("Email", user.Email);
-                commander.Parameters.AddWithValue("Rue", user.AddressUser.Rue);
-                commander.Parameters.AddWithValue("Numero", user.AddressUser.Numero);
-                commander.Parameters.AddWithValue("CodePostal", user.AddressUser.CodePostal);
-                commander.Parameters.AddWithValue("Ville", user.AddressUser.Ville);
-                commander.Parameters.AddWithValue("Pays", user.AddressUser.Pays);
-                commander.Parameters.AddWithValue("Gsm", user.ComplementUser.Gsm);
-                commander.Parameters.AddWithValue("Phone", user.ComplementUser.Phone);
+                commander.Parameters.AddWithValue("Rue", user.Rue);
+                commander.Parameters.AddWithValue("Numero", user.Numero);
+                commander.Parameters.AddWithValue("CodePostal", user.CodePostal);
+                commander.Parameters.AddWithValue("Ville", user.Ville);
+                commander.Parameters.AddWithValue("Pays", user.Pays);
+                commander.Parameters.AddWithValue("Gsm", user.Gsm);
+                commander.Parameters.AddWithValue("Phone", user.Phone);
 
 
                 commander.ExecuteNonQuery();
