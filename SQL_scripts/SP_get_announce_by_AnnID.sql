@@ -1,0 +1,17 @@
+USE [GoHoliday]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[SP_get_announce_by_AnnID]
+	@AnnID int
+AS
+BEGIN
+	SELECT Ann.*
+	
+	FROM Announces AS Ann
+
+	WHERE Ann.AnnID = @AnnID
+END

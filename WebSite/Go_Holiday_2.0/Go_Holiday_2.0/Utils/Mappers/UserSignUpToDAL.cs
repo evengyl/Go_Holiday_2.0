@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ModelAPI = Go_Holiday_2._0.Models.ModelsAPI;
-using ModelWeb = Go_Holiday_2._0.Models;
+using ModelWeb = Go_Holiday_2._0.Models.ModelsView.Forms;
 
 namespace Go_Holiday_2._0.Utils.Mappers
 {

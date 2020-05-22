@@ -5,7 +5,7 @@ using System;
 
 namespace Go_Holiday_2._0.Utils.Attributes
 {
-    [AttributeUsage(AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
     public class ConnectedRequiredAttribute : TypeFilterAttribute
     {
         public ConnectedRequiredAttribute() : base(typeof(ConnectedRequiredFilter))

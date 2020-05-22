@@ -1,4 +1,5 @@
 ﻿using Go_Holiday_2._0.Models;
+using Go_Holiday_2._0.Models.ModelsView.Partials;
 using System;
 using System.Collections.Generic;
 using System.Linq;

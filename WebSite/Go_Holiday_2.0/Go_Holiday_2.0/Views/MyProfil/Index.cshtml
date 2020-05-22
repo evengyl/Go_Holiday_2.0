@@ -1,4 +1,4 @@
-﻿@model Go_Holiday_2._0.Models.UserInfos
+﻿@model Go_Holiday_2._0.Models.ModelsView.Globals.UserGlobal
 
 
 <div class="highlight-clean" style="padding-bottom:0px;">
@@ -32,18 +32,18 @@
                             </span>
                         </div>
 
-                        <h4>@Model.FirstName @Model.LastName</h4>
+                        <h4>@Model.UserInfos.FirstName @Model.UserInfos.LastName</h4>
 
-                        <h5>@Model.Email</h5>
+                        <h5>@Model.UserInfos.Email</h5>
 
                         <p class="text-muted">
                             <small>
                                 @@Type D'utilisateur :
-                                @if (Model.TypeUser == "1")
+                                @if (Model.UserInfos.TypeUser == "1")
                                 {
                                     <b>Utilisateurs courant</b>
                                 }
-                                else if (Model.TypeUser == "2")
+                                else if (Model.UserInfos.TypeUser == "2")
                                 {
                                     <b>Annonceur</b>
                                 }
@@ -72,7 +72,7 @@
 
                     <h2 class="text-center" style="font-size:18px;">
                         <i class="fa fa-user d-block" style="font-size: 40px; padding-bottom: 15px;"></i>
-                        <span>@Model.LastName @Model.FirstName</span><br>
+                        <span>@Model.UserInfos.LastName @Model.UserInfos.FirstName</span><br>
                     </h2>
 
 
@@ -81,24 +81,24 @@
                         <div class="col-9">
                             <span>
                                 <b>Adresse</b><br />
-                                Rue : @Model.Rue
-                                @Model.Numero <br />
-                                à @Model.Ville @Model.CodePostal <br />
-                                Pays : @Model.Pays
+                                Rue : @Model.UserInfos.Rue
+                                @Model.UserInfos.Numero <br />
+                                à @Model.UserInfos.Ville @Model.UserInfos.CodePostal <br />
+                                Pays : @Model.UserInfos.Pays
                             </span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-1"><i class="icon ion-at icon"></i></div>
-                        <div class="col-9"><span>@Model.Email</span></div>
+                        <div class="col-9"><span>@Model.UserInfos.Email</span></div>
                     </div>
                     <div class="row">
                         <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
-                        <div class="col-9"><span>@Model.Gsm</span></div>
+                        <div class="col-9"><span>@Model.UserInfos.Gsm</span></div>
                     </div>
                     <div class="row">
                         <div class="col-1"><i class="icon ion-ios-telephone icon"></i></div>
-                        <div class="col-9"><span>@Model.Phone</span></div>
+                        <div class="col-9"><span>@Model.UserInfos.Phone</span></div>
                     </div>
                 </div>
             </div>
@@ -217,6 +217,6 @@ Liste des appels aux vues partielle des multiple modal
 
 -->
 @{
-    Html.RenderPartial("/Views/MyProfil/ModalList/EditProfil.cshtml");
+    Html.RenderPartial("/Views/MyProfil/ModalList/EditProfil.cshtml", Model.UserInfos);
     Html.RenderPartial("/Views/MyProfil/ModalList/EditBackgroundProfil.cshtml", Model.BackgroundProfil);
 }

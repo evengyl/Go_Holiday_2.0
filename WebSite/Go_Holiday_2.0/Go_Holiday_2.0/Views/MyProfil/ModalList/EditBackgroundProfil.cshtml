@@ -1,4 +1,4 @@
-﻿@model Go_Holiday_2._0.Models.BackgroundProfil
+﻿@model Go_Holiday_2._0.Models.ModelsView.Partials.BackgroundProfil
 
 <div class="modal fade" id="change_back_profil" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -10,9 +10,9 @@
             </div>
             <div class="modal-body" style="height:540px;">
 
-                 @foreach (var item in Model.ShortUrl)
-                 {
-                    <form asp-action="ChangeBack" method="POST" action="#">
+                @foreach (var item in Model.ShortUrl)
+                {
+                    <form method="POST" action="#">
                         <div class="col-xs-4" style="height:130px;">
                             <input type="hidden" name="id_img_background_selected" value="<?= $row_img ?>">
                             <button type="submit" class="thumbnail">
@@ -20,7 +20,7 @@
                             </button>
                         </div>
                     </form>
-                 }
+                }
             </div>
         </div>
     </div>

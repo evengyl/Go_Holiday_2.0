@@ -1,9 +1,13 @@
-﻿using Go_Holiday_2._0.Models;
-using Go_Holiday_2._0.Utils.Attributes;
+﻿using Go_Holiday_2._0.Utils.Attributes;
 using Go_Holiday_2._0.Utils.Controller.API;
 using Go_Holiday_2._0.Utils.Controller.API.Login;
 using Go_Holiday_2._0.Utils.Mappers;
 using Go_Holiday_2._0.Utils.Security;
+using Go_Holiday_2._0.Models.ModelsView.Forms;
+using Go_Holiday_2._0.Models.ModelsView.API;
+using Go_Holiday_2._0.Models;
+
+
 using Microsoft.AspNetCore.Mvc;
 
 namespace Go_Holiday_2._0.Controllers.Login
