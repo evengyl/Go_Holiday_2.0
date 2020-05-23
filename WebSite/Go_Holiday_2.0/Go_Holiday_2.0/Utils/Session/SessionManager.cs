@@ -1,5 +1,5 @@
 ﻿using Go_Holiday_2._0.Models;
-using Go_Holiday_2._0.Models.ModelsView.Partials;
+using ModelsView_Views = Go_Holiday_2._0.Models.ModelsView.Views;
 using Go_Holiday_2._0.Utils.Controller.API;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -58,13 +58,13 @@ namespace Go_Holiday_2._0.Utils.Session
         /* Méthode liée à la session */
 
 
-        public UserInfos GetInfosUser()
+        public ModelsView_Views.UserInfos GetInfosUser()
         {
             if (UserID == -1)
                 return null;
             else
             {
-                UserInfos userInfos = _controllerAPI.GetOneAPI<UserInfos>("User/Get", UserID);
+                ModelsView_Views.UserInfos userInfos = _controllerAPI.GetOneAPI<ModelsView_Views.UserInfos>("User/Get", UserID);
                 return userInfos;
             }
 

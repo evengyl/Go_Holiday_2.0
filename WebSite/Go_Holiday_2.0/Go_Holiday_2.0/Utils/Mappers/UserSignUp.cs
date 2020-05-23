@@ -7,7 +7,7 @@ using ModelWeb = Go_Holiday_2._0.Models.ModelsView.Forms;
 
 namespace Go_Holiday_2._0.Utils.Mappers
 {
-    public static class UserSignUpToDAL
+    public static class UserSignUpToAPI
     {
         public static ModelAPI.UserAPI User_WebToApi(this ModelWeb.UserSignUp user)
         {

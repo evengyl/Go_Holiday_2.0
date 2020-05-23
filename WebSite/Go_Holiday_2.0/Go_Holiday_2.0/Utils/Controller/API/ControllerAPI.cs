@@ -77,9 +77,7 @@ namespace Go_Holiday_2._0.Utils.Controller.API
 
                     return JsonConvert.DeserializeObject<string>(Json);
                 }
-#pragma warning disable CS0168 // La variable 'e' est déclarée, mais jamais utilisée
                 catch (Exception e)
-#pragma warning restore CS0168 // La variable 'e' est déclarée, mais jamais utilisée
                 {
                     return "Une erreur est survenue lors de l'appel de L'API";
                 }

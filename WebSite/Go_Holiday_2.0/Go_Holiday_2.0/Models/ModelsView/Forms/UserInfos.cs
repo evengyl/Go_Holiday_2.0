@@ -1,12 +1,7 @@
-﻿using Go_Holiday_2._0.Models.ModelsView.Partials;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Go_Holiday_2._0.Models.ModelsView.Partials
+namespace Go_Holiday_2._0.Models.ModelsView.Forms
 {
     public class UserInfos
     {
@@ -59,7 +54,5 @@ namespace Go_Holiday_2._0.Models.ModelsView.Partials
         [DataType(DataType.Text)]
         public string Phone { get; set; }
 
-        /* n'est pas repris dans le model pour l'affichage du edit profil */
-        public string TypeUser { get; set; }
     }
 }

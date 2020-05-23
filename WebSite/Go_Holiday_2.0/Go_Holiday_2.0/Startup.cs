@@ -35,6 +35,8 @@ namespace Go_Holiday_2._0
             services.AddSingleton<IControllerAPI, ControllerAPI>(); //controller, gère les appel au api controller
             services.AddSingleton<LoginSystemAPI>();
             services.AddSingleton<SignUpSystemAPI>();
+            services.AddTransient<EditUserSystemAPI>();
+
             services.AddSingleton<CryptingRSA>(); //permettra de crypter le mot de passe / donnée sensible du user
 
 

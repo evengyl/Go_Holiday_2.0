@@ -7,7 +7,6 @@ using ModelsAPI = API_2.Models;
 using API_2.Mappers;
 using API_2.Utils.RSACryptography;
 using System.Linq;
-using API_2._0.Models;
 
 namespace API_2.Controllers
 {
@@ -60,7 +59,7 @@ namespace API_2.Controllers
 
         [HttpPost]
         [Route("VerifyEmail")]
-        public int VerifyEmail(VerifyUser content)
+        public int VerifyEmail(ModelsAPI.VerifyUser content)
         {
             int OneUserID = _userRepository.VerifyEmail(content.Email) ;
             return OneUserID;
@@ -100,11 +99,15 @@ namespace API_2.Controllers
             _userRepository.Create(user);
         }
 
-        [HttpPut]
-        [Route("Edit")]
-        public void Edit(ModelsDAL.User user)
+
+
+
+        [HttpPost]
+        [Route("Update")]
+        public IActionResult Update(ModelsAPI.UserInfos user)
         {
-            _userRepository.Update(user);
+           _userRepository.Update(user.UserInfos_ApiToDAL());
+            return Ok();
         }
 
 

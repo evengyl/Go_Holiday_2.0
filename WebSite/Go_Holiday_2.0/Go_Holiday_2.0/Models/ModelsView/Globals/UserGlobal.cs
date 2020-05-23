@@ -1,4 +1,5 @@
-﻿using Go_Holiday_2._0.Models.ModelsView.Partials;
+﻿using ModelsView_Forms = Go_Holiday_2._0.Models.ModelsView.Forms;
+using ModelsView_Views = Go_Holiday_2._0.Models.ModelsView.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,15 @@ namespace Go_Holiday_2._0.Models.ModelsView.Globals
 {
     public class UserGlobal
     {
-        private BackgroundProfil _backgroundProfil;
+        private ModelsView_Views.BackgroundProfil _backgroundProfil;
 
-        public BackgroundProfil BackgroundProfil
+        public ModelsView_Views.BackgroundProfil BackgroundProfil
         {
-            get { return _backgroundProfil ??= new BackgroundProfil(); }
+            get { return _backgroundProfil ??= new ModelsView_Views.BackgroundProfil(); }
             set { _backgroundProfil = value; }
         }
 
 
-        public UserInfos UserInfos { get; set; }
+        public ModelsView_Views.UserInfos UserInfos { get; set; }
     }
 }

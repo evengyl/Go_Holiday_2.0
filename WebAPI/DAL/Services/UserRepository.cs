@@ -9,9 +9,6 @@ namespace DAL.Services
 {
     public class UserRepository : Services, IRepository<User>, IUser
     {
-        public UserRepository()
-        {
-        }
 
 
         public List<User> GetAll()
@@ -195,23 +192,11 @@ namespace DAL.Services
             }
         }
 
-        public void Update(User user)
+        public void Update(UserInfos user)
         {
-            using (SqlCommand commander = connection.CreateCommand())
+            using (SqlCommand commander = new SqlCommand("SP_Update_UserInfos", connection))
             {
-                commander.CommandText = "UPDATE [UserInfos] SET " +
-                                            "LastName = @LastName, " +
-                                            "FirstName = @FirstName, " +
-                                            "Email = @Email, " +
-                                            "Rue = @Rue " +
-                                            "Numero = @Numero " +
-                                            "CodePostal = @CodePostal " +
-                                            "Ville = @Ville " +
-                                            "Pays = @Pays " +
-                                            "Gsm = @Gsm " +
-                                            "Phone = @Phone " +
-                                    "WHERE UserID = @UserID";
-
+                commander.CommandType = CommandType.StoredProcedure;
 
                 commander.Parameters.AddWithValue("UserID", user.UserID);
                 commander.Parameters.AddWithValue("LastName", user.LastName);
@@ -225,8 +210,33 @@ namespace DAL.Services
                 commander.Parameters.AddWithValue("Gsm", user.Gsm);
                 commander.Parameters.AddWithValue("Phone", user.Phone);
 
-
                 commander.ExecuteNonQuery();
+                /*
+             
+                using (SqlDataReader reader = commander.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new UserInfos
+                        {
+                            LastName = reader["LastName"] == DBNull.Value ? string.Empty : (string)reader["LastName"],
+                            FirstName = reader["FirstName"] == DBNull.Value ? string.Empty : (string)reader["FirstName"],
+                            Email = reader["Email"] == DBNull.Value ? string.Empty : (string)reader["Email"],
+                            Rue = reader["Rue"] == DBNull.Value ? string.Empty : (string)reader["Rue"],
+                            Numero = reader["Numero"] == DBNull.Value ? string.Empty : (string)reader["Numero"],
+                            CodePostal = reader["CodePostal"] == DBNull.Value ? 0 : (int)reader["CodePostal"],
+                            Ville = reader["Ville"] == DBNull.Value ? string.Empty : (string)reader["Ville"],
+                            Pays = reader["Pays"] == DBNull.Value ? string.Empty : (string)reader["Pays"],
+                            Gsm = reader["Gsm"] == DBNull.Value ? string.Empty : (string)reader["Gsm"],
+                            Phone = reader["Phone"] == DBNull.Value ? string.Empty : (string)reader["Phone"],
+                        };
+                    }
+                    else
+                    {
+                        return new UserInfos();
+                    }
+                }*/
+                
             }
         }
 
@@ -239,5 +249,7 @@ namespace DAL.Services
         {
             throw new System.NotImplementedException();
         }
+
+      
     }
 }

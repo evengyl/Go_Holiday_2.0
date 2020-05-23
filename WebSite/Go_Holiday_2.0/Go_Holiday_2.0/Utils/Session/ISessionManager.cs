@@ -1,5 +1,5 @@
 ﻿using Go_Holiday_2._0.Models;
-using Go_Holiday_2._0.Models.ModelsView.Partials;
+using ModelsView_Views = Go_Holiday_2._0.Models.ModelsView.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +15,6 @@ namespace Go_Holiday_2._0.Utils.Session
         string LastName { get; set; }
         string FirstName { get; set; }
         void Abandon();
-        UserInfos GetInfosUser();
+        ModelsView_Views.UserInfos GetInfosUser();
     }
 }

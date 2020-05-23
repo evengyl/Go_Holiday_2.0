@@ -14,6 +14,5 @@ namespace DAL.IRepositories
 
         void Delete(int id);
 
-        void Update(TEntity t);
     }
 }
