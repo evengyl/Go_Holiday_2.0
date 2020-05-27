@@ -11,6 +11,8 @@ namespace DAL.IRepositories
         TEntity GetBy(string row, string value);
 
         void Create(TEntity t);
+        
+        void Update(TEntity t);
 
         void Delete(int id);
 

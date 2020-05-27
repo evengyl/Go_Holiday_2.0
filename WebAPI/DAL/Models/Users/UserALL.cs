@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Models
+namespace DAL.Models.Users
 {
-    public class User
+    public class UserALL
     {
         public int UserID { get; set; }
         public string LastName { get; set; }

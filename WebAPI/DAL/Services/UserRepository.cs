@@ -1,5 +1,5 @@
 ﻿using DAL.IRepositories;
-using DAL.Models;
+using DAL.Models.Users;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,13 +7,13 @@ using System.Data.SqlClient;
 
 namespace DAL.Services
 {
-    public class UserRepository : Services, IRepository<User>, IUser
+    public class UserRepository : Services, IRepository<UserALL>, IUser
     {
+        
 
-
-        public List<User> GetAll()
+        public List<UserALL> GetAll()
         {
-            List<User> ListUser = new List<User>();
+            List<UserALL> ListUser = new List<UserALL>();
 
             using (SqlCommand commander = connection.CreateCommand())
             {
@@ -23,7 +23,7 @@ namespace DAL.Services
                 {
                     while (reader.Read())
                     {
-                        ListUser.Add(new User
+                        ListUser.Add(new UserALL
                         {
                             UserID = (int)reader["UserID"],
                             LastName = (string)reader["LastName"],
@@ -42,7 +42,7 @@ namespace DAL.Services
                 }
             }
         }
-        public User Get(int user_id)
+        public UserALL Get(int user_id)
         {
             using (SqlCommand commander = connection.CreateCommand())
             {
@@ -54,7 +54,7 @@ namespace DAL.Services
                 {
                     if (reader.Read())
                     {
-                        return new User
+                        return new UserALL
                         {
                             UserID = (int)reader["UserID"],
                             LastName = (string)reader["LastName"],
@@ -72,7 +72,7 @@ namespace DAL.Services
                     }
                     else
                     {
-                        return new User();
+                        return new UserALL();
                     }
                 }
             }
@@ -103,7 +103,7 @@ namespace DAL.Services
         }
 
 
-        public User Login(User user)
+        public UserALL Login(UserALL user)
         {
             using (SqlCommand commander = new SqlCommand("SP_login_user", connection))
             {
@@ -117,7 +117,7 @@ namespace DAL.Services
                 {
                     if (reader.Read())
                     {
-                        return new User
+                        return new UserALL
                         {
                             UserID = (int)reader["UserID"],
                             LastName = (string)reader["LastName"],
@@ -127,7 +127,7 @@ namespace DAL.Services
                     }
                     else
                     {
-                        return new User();
+                        return new UserALL();
                     }
                 }
 
@@ -136,10 +136,12 @@ namespace DAL.Services
         }
 
 
-        
 
+        public void Create()
+        {
+        }
 
-        public void Create(User user)
+        public void Create(UserALL user)
         {
             using (SqlCommand commander = new SqlCommand("SP_create_user", connection))
             {
@@ -211,36 +213,11 @@ namespace DAL.Services
                 commander.Parameters.AddWithValue("Phone", user.Phone);
 
                 commander.ExecuteNonQuery();
-                /*
-             
-                using (SqlDataReader reader = commander.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        return new UserInfos
-                        {
-                            LastName = reader["LastName"] == DBNull.Value ? string.Empty : (string)reader["LastName"],
-                            FirstName = reader["FirstName"] == DBNull.Value ? string.Empty : (string)reader["FirstName"],
-                            Email = reader["Email"] == DBNull.Value ? string.Empty : (string)reader["Email"],
-                            Rue = reader["Rue"] == DBNull.Value ? string.Empty : (string)reader["Rue"],
-                            Numero = reader["Numero"] == DBNull.Value ? string.Empty : (string)reader["Numero"],
-                            CodePostal = reader["CodePostal"] == DBNull.Value ? 0 : (int)reader["CodePostal"],
-                            Ville = reader["Ville"] == DBNull.Value ? string.Empty : (string)reader["Ville"],
-                            Pays = reader["Pays"] == DBNull.Value ? string.Empty : (string)reader["Pays"],
-                            Gsm = reader["Gsm"] == DBNull.Value ? string.Empty : (string)reader["Gsm"],
-                            Phone = reader["Phone"] == DBNull.Value ? string.Empty : (string)reader["Phone"],
-                        };
-                    }
-                    else
-                    {
-                        return new UserInfos();
-                    }
-                }*/
                 
             }
         }
 
-        public User GetBy(string row, string value)
+        public UserALL GetBy(string row, string value)
         {
             throw new System.NotImplementedException();
         }
@@ -250,6 +227,9 @@ namespace DAL.Services
             throw new System.NotImplementedException();
         }
 
-      
+        public void Update(UserALL t)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 
 using DAL.Services;
-using ModelsDAL = DAL.Models;
-using ModelsAPI = API_2.Models;
+using ModelsDAL = DAL.Models.Users;
+using ModelsAPI = API_2.Models.Users;
 using API_2.Mappers;
 using API_2.Utils.RSACryptography;
 using System.Linq;
@@ -24,68 +24,93 @@ namespace API_2.Controllers
         }
 
 
+        public IActionResult Index()
+        {
+            return Ok();
+        }
+
 
         [HttpGet]
         [Route("Gets")]
-        public List<ModelsAPI.User> Gets()
+        public IActionResult Gets()
         {
-            return _userRepository.GetAll().Select(x => x.DALToAPI()).ToList();
+            List<ModelsAPI.User> users = _userRepository.GetAll().Select(user => user.DALToAPI()).ToList();
+
+            if (users != null)
+                return Ok(users);
+            else
+                return NotFound();
         }
 
 
         [HttpGet]
         [Route("Get/{id:int}")]
-        public ModelsDAL.User Get(int id)
+        public IActionResult Get(int id)
         {
-            ModelsDAL.User OneUser = _userRepository.Get(id);
-            return OneUser;
+            ModelsAPI.User User = _userRepository.Get(id).DALToAPI();
+
+            if (User != null)
+                return Ok(User);
+            else
+                return NotFound();
         }
 
 
         [HttpPost]
         [Route("Login")]
-        public ModelsAPI.User Login(ModelsDAL.User user)
+        public IActionResult Login(ModelsDAL.UserALL user)
         {
             string PrivateKey = _keyGenerator.PrivateKey;
             user.Password = decrypting.Decrypt(user.Password, PrivateKey);
 
 
             ModelsAPI.User OneUser = _userRepository.Login(user).DALToAPI();
-            return OneUser;
+            if (OneUser != null)
+                return Ok(OneUser);
+            else
+                return NotFound();
         }
 
 
         
 
-        [HttpPost]
+        [HttpGet]
         [Route("VerifyEmail")]
-        public int VerifyEmail(ModelsAPI.VerifyUser content)
+        public IActionResult VerifyEmail(ModelsAPI.VerifyUser content)
         {
-            int OneUserID = _userRepository.VerifyEmail(content.Email) ;
-            return OneUserID;
+            int OneUserID = _userRepository.VerifyEmail(content.Email);
+
+            if (OneUserID == 0)
+                return NotFound();
+            else
+                return Ok(OneUserID);
         }
 
 
         [HttpPost]
         [Route("Register")]
-        public void Register(ModelsDAL.User user)
+        public IActionResult Register(ModelsDAL.UserALL user)
         {
 
             string PrivateKey = _keyGenerator.PrivateKey;
             user.Password = decrypting.Decrypt(user.Password, PrivateKey);
 
             _userRepository.Create(user);
+            return Ok();
         }
 
 
         [HttpGet]
         [Route("GetPublicKey")]
-        public string GetPublicKey()
+        public IActionResult GetPublicKey()
         {
             _keyGenerator.GenerateKeys(RSAKeySize.Key1024);
             string publicKey = _keyGenerator.PublicKey;
 
-            return publicKey;
+            if(publicKey != null)
+                return Ok(publicKey);
+            else
+                return NotFound();
         }
 
 
@@ -94,9 +119,10 @@ namespace API_2.Controllers
 
         [HttpPost]
         [Route("Post")]
-        public void Post(ModelsDAL.User user)
+        public IActionResult Post(ModelsDAL.UserALL user)
         {
             _userRepository.Create(user);
+            return Ok();
         }
 
 
@@ -113,9 +139,10 @@ namespace API_2.Controllers
 
         [HttpDelete]
         [Route("Delete/{id:int}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             _userRepository.Delete(id);
+            return Ok();
         }
     }
 }
